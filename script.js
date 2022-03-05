@@ -15,6 +15,16 @@ async function getQuotes() {
 	}
 }
 
-// On Load
+// On Click
 let newQuote = document.getElementById("new-quote");
 newQuote.addEventListener("click", (Event) => getQuotes());
+
+async function tweetIt() {
+	const quote = document.getElementById("quote").innerText;
+	const author = document.getElementById("author").innerText;
+	const twitterUrl = `https://twitter.com/intent/tweet?text=${quote} - ${author}`;
+	window.open(twitterUrl, "_blank");
+}
+
+const newTweet = document.getElementById("twitter");
+newTweet.addEventListener("click", (Event) => tweetIt());
